@@ -1,0 +1,63 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build docker image
+          command: docker build -t anypay/auction .
+      - add_ssh_keys
+  deploy:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build docker image
+          command: docker build -t anypay .
+      - run:
+          name: Deploy To Server
+          command: |
+            ./push_to_docker.sh
+            ssh chef@auction.anypay.global "sudo /opt/anypay/deploy_auction.sh"
+
+  deploy_staging:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build docker image
+          command: docker build -t anypay/auction .
+      - run:
+          name: Deploy To Server
+          command: |
+            ./push_to_docker.sh
+            ssh -oStrictHostKeyChecking=no chef@auction.anypay.global "sudo /opt/anypay/deploy_auction.sh"
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
+  build-and-deploy-staging:
+      jobs:
+        - build
+        - deploy_staging:
+            requires:
+              - build
+            filters:
+              branches:
+                only: staging
