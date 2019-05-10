@@ -3,6 +3,8 @@ import { Actor } from 'bunnies';
 
 import { connect } from 'amqplib';
 
+import { notifySlack } from '../lib/slack'
+
 require('dotenv').config();
 
 (async () => {
@@ -27,7 +29,11 @@ require('dotenv').config();
     queue: 'loguseradded'
 
   })
-  .start();
+  .start(async (channel, msg) => {
+
+    notifySlack('user.added', msg.content.toString());
+  
+  });
 
   Actor.create({
 
