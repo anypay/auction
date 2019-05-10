@@ -22,6 +22,17 @@ require('dotenv').config();
 
     exchange: 'auction.anypay.global',
 
+    routingkey: 'user.added',
+
+    queue: 'loguseradded'
+
+  })
+  .start();
+
+  Actor.create({
+
+    exchange: 'auction.anypay.global',
+
     routingkey: 'auction.started',
 
     queue: 'logauctionstarted',

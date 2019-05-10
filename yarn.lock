@@ -60,9 +60,9 @@ buffer-more-ints@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/buffer-more-ints/-/buffer-more-ints-1.0.0.tgz#ef4f8e2dddbad429ed3828a9c55d44f05c611422"
 
-bunnies@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/bunnies/-/bunnies-1.1.0.tgz#8f2ee5e4dfa4932acec70d59e75b1ed945a44485"
+bunnies@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/bunnies/-/bunnies-1.2.1.tgz#99bf22bcde07d420ac80c94c27d3bf3d2973484b"
   dependencies:
     "@types/amqplib" "^0.5.11"
     "@types/bluebird" "^3.5.26"

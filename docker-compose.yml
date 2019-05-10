@@ -11,7 +11,7 @@ services:
       - rabbitmq
     environment:
       DATABASE_URL: postgres://anypay@postgres/auction
-      AMQP_URL: amqp://anypay:auction@rabbitmq:5672/
+      AMQP_URL: amqp://guest:guest@auction.anypay.global:5566/
   postgres:
     image: postgres:9.6.2-alpine
     environment:
