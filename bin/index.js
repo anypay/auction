@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+require('dotenv').config();
+
 const commander = require('commander')
 const program = new commander.Command();
 program
