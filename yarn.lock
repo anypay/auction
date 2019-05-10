@@ -2,6 +2,31 @@
 # yarn lockfile v1
 
 
+"@types/amqplib@^0.5.11":
+  version "0.5.11"
+  resolved "https://registry.yarnpkg.com/@types/amqplib/-/amqplib-0.5.11.tgz#32b0fe3d8e3aa4c749b300d232da15900908e816"
+  dependencies:
+    "@types/bluebird" "*"
+    "@types/node" "*"
+
+"@types/bluebird@*", "@types/bluebird@^3.5.26":
+  version "3.5.26"
+  resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.26.tgz#a38c438ae84fa02431d6892edf86e46edcbca291"
+
+"@types/node@*":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.0.tgz#d11813b9c0ff8aaca29f04cbc12817f4c7d656e5"
+
+"@types/node@^11.13.8":
+  version "11.13.10"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.10.tgz#4df59e5966b56f512bac98898bcbee5067411f0f"
+
+"@types/winston@^2.4.4":
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/@types/winston/-/winston-2.4.4.tgz#48cc744b7b42fad74b9a2e8490e0112bd9a3d08d"
+  dependencies:
+    winston "*"
+
 amqplib@^0.5.3:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/amqplib/-/amqplib-0.5.3.tgz#7ccfc85d12ee7cd3c6dc861bb07f0648ec3d7193"
@@ -34,6 +59,18 @@ bluebird@^3.5.2:
 buffer-more-ints@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/buffer-more-ints/-/buffer-more-ints-1.0.0.tgz#ef4f8e2dddbad429ed3828a9c55d44f05c611422"
+
+bunnies@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/bunnies/-/bunnies-1.1.0.tgz#8f2ee5e4dfa4932acec70d59e75b1ed945a44485"
+  dependencies:
+    "@types/amqplib" "^0.5.11"
+    "@types/bluebird" "^3.5.26"
+    "@types/node" "^11.13.8"
+    "@types/winston" "^2.4.4"
+    amqplib "^0.5.3"
+    dotenv "^8.0.0"
+    winston "^3.2.1"
 
 color-convert@^1.9.1:
   version "1.9.3"
@@ -275,7 +312,7 @@ winston-transport@^4.3.0:
     readable-stream "^2.3.6"
     triple-beam "^1.2.0"
 
-winston@^3.2.1:
+winston@*, winston@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/winston/-/winston-3.2.1.tgz#63061377976c73584028be2490a1846055f77f07"
   dependencies:
