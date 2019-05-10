@@ -10,20 +10,31 @@ program
 program
   .command('addUser')
   .alias('U')
+  .description('Add a new user.')
   .action(function() {
     console.log('Adding user')
   });
 
 program
+  .command('removeUser')
+  .alias('RU')
+  .description('Remove a user.')
+  .action(function() {
+    console.log('Removing user')
+  })
+
+program
   .command('addItem')
   .alias('I')
+  .description('Add an auction item.')
   .action(function() {
     console.log('Adding auction item')
   });
 
 program
   .command('removeItem')
-  .alias('R')
+  .alias('RI')
+  .description('Remove an auction item.')
   .action(function() {
     console.log('Removing item')
   });
@@ -31,6 +42,7 @@ program
 program
   .command('placeBid')
   .alias('B')
+  .description('Place a bid.')
   .action(function() {
     console.log('Placing bid')
   });
@@ -38,6 +50,7 @@ program
 program
   .command('checkHighest')
   .alias('C')
+  .description('Check the highest bid.')
   .action(function() {
     console.log('Checking highest bid')
   });
@@ -45,6 +58,7 @@ program
 program
   .command('closeAuction')
   .alias('X')
+  .description('End an auction.')
   .action(function() {
     console.log('Auction ended')
   })

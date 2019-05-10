@@ -6,6 +6,9 @@
   "scripts": {
     "test": "node bin/index.js --help"
   },
+  "bin": {
+    "auction": "bin/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anypay/auction.git"
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/anypay/auction#readme",
   "dependencies": {
-    "commander": "^2.20.0"
+    "commander": "^2.20.0",
+    "minimist": "^1.2.0"
   }
 }
