@@ -19,3 +19,16 @@ Back end:
 	-Refunding payment
 -Logic to define highest bidder/make 'ownership'
 -Security concerns around personal information
+
+
+##Commands
+These commands will run in the terminal following the 'auction' command:
+(currently just prints description)
+
+addUser
+removeUser
+addItem
+removeItem
+placeBid
+checkHighest
+closeAuction
