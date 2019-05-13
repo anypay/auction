@@ -4,7 +4,8 @@
   "description": "For Ross Is Free Auction At Porcfest 2019",
   "main": "index.js",
   "scripts": {
-    "test": "node bin/index.js --help"
+    "test": "node bin/index.js --help",
+    "actors": "ts-node actors/index.ts"
   },
   "bin": {
     "auction": "bin/index.js"
@@ -20,10 +21,12 @@
   },
   "homepage": "https://github.com/anypay/auction#readme",
   "dependencies": {
+    "amqplib": "^0.5.3",
+    "bunnies": "^1.2.1",
     "commander": "^2.20.0",
+    "dotenv": "^8.0.0",
     "minimist": "^1.2.0",
-    "pg": "^7.11.0",
-    "pg-hstore": "^2.3.2",
-    "sequelize": "^5.8.6"
+    "superagent": "^5.0.5",
+    "winston": "^3.2.1"
   }
 }

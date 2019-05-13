@@ -1,4 +1,8 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
+
+require('dotenv').config();
+
+import { publish } from '../lib/events';
 
 const commander = require('commander')
 const program = new commander.Command();
@@ -11,8 +15,11 @@ program
   .command('addUser')
   .alias('U')
   .description('Add a new user.')
-  .action(function() {
+  .action(async function() {
     console.log('Adding user')
+
+    publish('user.added', 'newusername');
+    
   });
 
 program

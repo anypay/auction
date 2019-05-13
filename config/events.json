@@ -1,0 +1,8 @@
+{
+  "auction.created": "A new auction has been created",
+  "auction.started": "An auction started",
+  "auction.ended": "An auction ended",
+  "user.added": "A new user has joined the auction",
+  "bid.placed": "A new bid has been placed",
+  "bid.refunded": "An inferior bid has been replaced"
+}

@@ -23,7 +23,7 @@ jobs:
           name: Deploy To Server
           command: |
             ./push_to_docker.sh
-            ssh chef@auction.anypay.global "sudo /opt/anypay/deploy_auction.sh"
+            ssh -oStrictHostKeyChecking chef@auction.anypay.global "sudo /opt/anypay/deploy_auction.sh"
 
   deploy_staging:
     docker:
