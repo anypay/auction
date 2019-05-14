@@ -4,7 +4,7 @@
   "description": "For Ross Is Free Auction At Porcfest 2019",
   "main": "index.js",
   "scripts": {
-    "test": "node bin/index.js --help",
+    "test": "mocha",
     "actors": "ts-node actors/index.ts"
   },
   "bin": {
@@ -26,6 +26,10 @@
     "commander": "^2.20.0",
     "dotenv": "^8.0.0",
     "minimist": "^1.2.0",
+    "mocha": "^6.1.4",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.8.6",
     "superagent": "^5.0.5",
     "winston": "^3.2.1"
   }
