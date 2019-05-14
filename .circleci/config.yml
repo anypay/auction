@@ -9,6 +9,9 @@ jobs:
       - run:
           name: Build docker image
           command: docker build -t anypay/auction .
+      - run:
+          name: Run Tests
+          command: docker run -it anypay/auction npm test
       - add_ssh_keys
   deploy:
     docker:
