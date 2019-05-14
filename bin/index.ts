@@ -15,7 +15,7 @@ program
   .command('addUser')
   .alias('U')
   .description('Add a new user.')
-  .action(async function() {
+  .action(function() {
     console.log('Adding user')
 
     publish('user.added', 'newusername');
