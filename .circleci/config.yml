@@ -2,6 +2,7 @@ version: 2
 jobs:
   build:
     docker:
+      - image: circleci/postgres:9.6.5-alpine-ram
       - image: circleci/node:10
     steps:
       - checkout
