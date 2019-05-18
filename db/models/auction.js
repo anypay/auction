@@ -6,7 +6,8 @@ const Auction = db.define('auctions', {
     type: Sequelize.DECIMAL
   },
   closed: {
-    type: Sequelize.BOOLEAN
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 

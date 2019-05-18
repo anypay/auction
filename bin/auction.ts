@@ -8,6 +8,8 @@ import * as moment from 'moment';
 
 import * as lib from '../lib';
 
+import { startAuction } from '../lib/app';
+
 import * as models from '../models';
 
 import { log } from '../lib/logger';
@@ -36,6 +38,72 @@ program
   });
 
 program
+  .command('listauctions')
+  .action(async () => {
+
+    let auctions = await lib.listAuctions();
+
+    auctions.forEach(auction => {
+
+      log.info('auction', auction.toJSON());
+
+    });
+
+    process.exit(0);
+
+  })
+
+program
+  .command('listauctionitems <auction_name>')
+  .action(async (name) => {
+
+    let auction = await models.Auction.findOne({ where: { name }}); 
+
+    let auctionItems = await lib.listAuctionItems(auction.id);
+
+    console.log("auctionItems");
+
+    auctionItems.forEach(item => {
+
+      log.info('auction item', item.toJSON());
+
+    });
+
+    process.exit(0);
+
+  })
+
+program
+  .command('createbidder <auction_name> <item_name> <email>')
+  .description('create a bidder for an item in an auction')
+  .action(async function(auction_name, item_name, email) {
+
+    let participant = await models.Participant.findOne({ where: { email }});
+
+    let auction = await models.Auction.findOne({ where: {
+      name: auction_name
+    }});
+
+    let auctionItem = await models.AuctionItem.findOne({ where: {
+
+      auction_id: auction.id,
+
+      name: item_name
+
+    }});
+
+    let bidder = await lib.createBidder({
+
+      auction_item_id: auctionItem.id,
+
+      participant_id: participant.id
+    })
+
+    log.info('bidder.created', bidder.toJSON());
+    
+  });
+
+program
   .command('removeUser')
   .alias('RU')
   .description('Remove a user.')
@@ -44,11 +112,23 @@ program
   })
 
 program
-  .command('addItem')
+  .command('additemtoauction <auction_name> <item_name> [item_description]')
   .alias('I')
   .description('Add an auction item.')
-  .action(function() {
-    console.log('Adding auction item')
+  .action(async function(auction_name, name, description) {
+
+    let auction_id = (await models.Auction.findOne({ where: {
+      name: auction_name
+    }}))['id'];
+
+    let item = await lib.addItemToAuction({
+      auction_id,
+      name,
+      description
+    });
+
+    log.info('item.added', item.toJSON());
+
   });
 
 program
@@ -121,6 +201,38 @@ program
     //publish('auction.created', auction.toJSON())
 
   })
+
+program
+  .command('getaddressbalance <bch_address>')
+  .description('get bitcoin cash balance for an address')
+  .action(async (address) => {
+
+    let balance = await lib.getAddressBalance(address);
+
+    log.info('address.balance', {
+
+      address,
+
+      balance
+
+    });
+
+    process.exit(0);
+
+  });
+
+program
+  .command('startauction <name>')
+  .description('start an auction')
+  .action(async (name) => {
+
+    let auction = await models.Auction.findOne({ where: { name }});
+
+    startAuction(auction);
+
+    log.info('auction.started', name);
+
+  });
 
 program.parse(process.argv)
 
