@@ -3,6 +3,11 @@ jobs:
   build:
     docker:
       - image: circleci/node:10
+      - image: circleci/postgres:9.6.2-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: anypay_auction
+
     steps:
       - checkout
       - setup_remote_docker
@@ -11,7 +16,7 @@ jobs:
           command: docker build -t anypay/auction .
       - run:
           name: Run Tests
-          command: docker run -it anypay/auction npm test
+          command: docker run -it -e DATABASE_URL=$DATABASE_URL anypay/auction npm test
       - add_ssh_keys
   deploy:
     docker:
