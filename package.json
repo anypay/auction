@@ -22,13 +22,18 @@
   "homepage": "https://github.com/anypay/auction#readme",
   "dependencies": {
     "amqplib": "^0.5.3",
+    "aws-sdk": "^2.458.0",
+    "bitcore-lib-cash": "^8.3.0",
     "bunnies": "^1.2.1",
+    "chance": "^1.0.18",
     "commander": "^2.20.0",
     "dotenv": "^8.0.0",
     "minimist": "^1.2.0",
     "mocha": "^6.1.4",
+    "moment": "^2.24.0",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.2",
+    "rpc-simple-wallet": "^1.0.12",
     "sequelize": "^5.8.6",
     "superagent": "^5.0.5",
     "winston": "^3.2.1"

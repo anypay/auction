@@ -1,0 +1,20 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": null,
+    "database": "anypay_auction",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  },
+  "test": {
+    "username": "postgres",
+    "password": null,
+    "database": "anypay_auction_test",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgresql"
+  }
+}
