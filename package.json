@@ -29,7 +29,7 @@
     "chance": "^1.0.18",
     "commander": "^2.20.0",
     "dotenv": "^8.0.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.2",
     "mocha": "^6.1.4",
     "moment": "^2.24.0",
     "node-cron": "^2.0.3",
